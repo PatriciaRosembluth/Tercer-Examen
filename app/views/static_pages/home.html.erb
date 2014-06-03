@@ -1,0 +1,13 @@
+<% if user_signed_in?%>
+	<%if current_user.enable == true%>
+		<p style="text-align:right"> Bienvenido <%= current_user.username.capitalize %></p>
+	<%else%>
+		<p style="text-align:right"> Usted se encuentra bloqueado</p>
+	<%end%>
+<% end %>
+<div class="center hero-unit">
+	<h1>Akita Thermostat</h1>
+	<img src="images/logo.jpg" height="250" /><br><br>  	
+</div>
+
+

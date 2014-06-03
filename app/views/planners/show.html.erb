@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dia de la semana:</strong>
+  <%= @planner.week_day %>
+</p>
+
+<p>
+  <strong>Max temperature:</strong>
+  <%= @planner.temp_max %>
+</p>
+
+<p>
+  <strong>Min temperature:</strong>
+  <%= @planner.temp_min %>
+</p>
+
+<p>
+  <strong>Franja:</strong>
+  <%= @planner.schedule %>
+</p>
+
+
+<td><%= link_to 'Editar', edit_planner_path(@planner), :class => 'btn btn-info' %></td>
+
+
