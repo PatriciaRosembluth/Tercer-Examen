@@ -16,13 +16,13 @@
   <tbody>
     <% @issues.each do |issue| %>
       <tr>
-        <%if issue.status == 'ABIERTO' %>
+        <%if issue.status != 'CANCELADO'  %>
         <td><%= issue.thermostat.serial %></td>
         <td><%= issue.description %></td>
         <td><%= issue.status %></td>
         <td><%= issue.resolution %></td>
+        <td><%= link_to 'Resolver', edit_issue_path(issue) %></td>
         <td><%= link_to 'Show', issue %></td>
-        <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
         <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
       </tr>
@@ -31,5 +31,8 @@
 </table>
 
 <br>
+
+
+
 
 <%= link_to 'New Issue', new_issue_path %>

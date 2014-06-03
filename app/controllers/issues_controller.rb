@@ -40,6 +40,9 @@ class IssuesController < ApplicationController
   # GET /issues/1/edit
   def edit
     @issue = Issue.find(params[:id])
+    @issue.status = 'RESUELTO'
+    @issue.save
+
   end
 
   # POST /issues
