@@ -1,6 +1,6 @@
 <h1>Listing issues</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Thermostat</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @issues.each do |issue| %>
       <tr>
-        <td><%= issue.thermostat %></td>
+        <td><%= issue.thermostat.serial %></td>
         <td><%= issue.description %></td>
         <td><%= issue.status %></td>
         <td><%= issue.resolution %></td>

@@ -16,6 +16,11 @@ class IssuesController < ApplicationController
   def show
   end
 
+  def history
+    @thermostat = Thermostat.find(params[:id])
+    @issues = @thermostat.issues
+  end
+
   # GET /issues/new
   def new
     @issue = Issue.new
@@ -32,6 +37,7 @@ class IssuesController < ApplicationController
   def create
     @issue = Issue.new(issue_params)
     @issue.status = 'ABIERTO'
+    @issue.resolution = '         '
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
