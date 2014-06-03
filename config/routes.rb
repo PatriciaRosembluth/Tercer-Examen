@@ -1,5 +1,7 @@
 AkitaThermostat::Application.routes.draw do
 
+  resources :issues
+
   resources :alarms
 
   resources :locations
@@ -13,6 +15,7 @@ AkitaThermostat::Application.routes.draw do
   get '/planners/history/:id' => 'planners#history', as: 'planner_history'
   get '/thermostats/devise' => 'thermostats#devise', as: 'devise'
   
+  get '/issues/new/:id' => 'issues#new'
 
   get 'users/change_role/:id' => 'users#change_role', :as => 'change_role_user'
   get 'users/change_enable/:id' => 'users#change_enable', :as => 'change_enable_user'
