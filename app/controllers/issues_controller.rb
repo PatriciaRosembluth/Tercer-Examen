@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  before_action :set_issue, only: [:change_status, :show, :edit, :update, :destroy]
 
   # GET /issues
   # GET /issues.json
@@ -16,6 +16,15 @@ class IssuesController < ApplicationController
   def show
   end
 
+  def change_status
+    @issue.change_status
+      respond_to do |format|
+      format.html { redirect_to issues_url }
+      format.json { head :no_content }
+    end
+  end
+
+
   def history
     @thermostat = Thermostat.find(params[:id])
     @issues = @thermostat.issues
@@ -30,6 +39,7 @@ class IssuesController < ApplicationController
 
   # GET /issues/1/edit
   def edit
+    @issue = Issue.find(params[:id])
   end
 
   # POST /issues
