@@ -21,7 +21,12 @@
         <td><%= issue.description %></td>
         <td><%= issue.status %></td>
         <td><%= issue.resolution %></td>
+        <%if issue.status != 'RESUELTO'  %>
         <td><%= link_to 'Resolver', edit_issue_path(issue) %></td>
+        <%end%>
+        <%if issue.status == 'RESUELTO'  %>
+        <td><%= link_to 'Abrir', open_issue_path(issue) %></td>
+        <%end%>
         <td><%= link_to 'Show', issue %></td>
         <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>

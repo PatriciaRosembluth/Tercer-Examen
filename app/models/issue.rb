@@ -8,4 +8,9 @@ class Issue < ActiveRecord::Base
    self.save!
 end
 
+def open
+	self.status = 'ABIERTO'
+	self.save!
+end
+
 end

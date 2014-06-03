@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, only: [:change_status, :show, :edit, :update, :destroy]
+  before_action :set_issue, only: [:change_status, :open,  :show, :edit, :update, :destroy]
 
   # GET /issues
   # GET /issues.json
@@ -18,6 +18,14 @@ class IssuesController < ApplicationController
 
   def change_status
     @issue.change_status
+      respond_to do |format|
+      format.html { redirect_to issues_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def open
+    @issue.open
       respond_to do |format|
       format.html { redirect_to issues_url }
       format.json { head :no_content }
